@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Camera } from "./camera/illndex";
 import { Root, Preview, Footer, GlobalStyle } from "./styles";
@@ -16,6 +16,16 @@ function App() {
   if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
     videoRef.current.srcObject = mediaStream;
   }
+  useEffect(()=>{
+    if (mediaStream) {
+      return function cleanup() {
+        console.log("cleanup")
+        mediaStream.getTracks().forEach(track => {
+          track.stop();
+        });
+      };
+    }
+  },[mediaStream])
   console.log(mediaStream)
   if (!mediaStream) {
     return null;
@@ -26,6 +36,8 @@ function App() {
    }
   return (
     <>
+    <div style={{display:"flex", flexDirection:"column", justifyContent:"start", alignItems:"center", overflow:"hidden"}}>
+      <div className="VideoAndCanvas">
        <video
               ref={videoRef}
               onCanPlay={handleCanPlay}
@@ -33,7 +45,9 @@ function App() {
               playsInline
               muted
               height={"100%"}
-        />
+  />
+        </div>
+        </div>
     </>
   );
 }
