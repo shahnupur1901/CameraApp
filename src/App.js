@@ -38,6 +38,7 @@ function App() {
     <>
     <div style={{display:"flex", flexDirection:"column", justifyContent:"start", alignItems:"center", overflow:"hidden"}}>
       <div className="VideoAndCanvas">
+        <h1>hello</h1>
        <video
               ref={videoRef}
               onCanPlay={handleCanPlay}
