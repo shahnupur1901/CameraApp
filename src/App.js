@@ -25,7 +25,7 @@ function App() {
    }
   return (
     <>
-       <Video
+       <video
               ref={videoRef}
               onCanPlay={handleCanPlay}
               autoPlay
