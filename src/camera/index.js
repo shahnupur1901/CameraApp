@@ -88,14 +88,6 @@ export function Camera({ onCapture, onClear }) {
     <Measure bounds onResize={handleResize}>
       {({ measureRef }) => (
         <Wrapper>
-          <Container
-            ref={measureRef}
-            // maxHeight={videoRef.current && videoRef.current.videoHeight}
-            // maxWidth={videoRef.current && videoRef.current.videoWidth}
-            style={{
-              height: `${videoRef.current.videoHeight}px`
-            }}
-          >
             <Video
               ref={videoRef}
               hidden={!isVideoPlaying}
@@ -103,25 +95,17 @@ export function Camera({ onCapture, onClear }) {
               autoPlay
               playsInline
               muted
-              style={{
-                top: `-${offsets.y}px`,
-                left: `-${offsets.x}px`
-              }}
+              height={"100%"}
+              width={"100%"}
             />
 
             <Overlay hidden={!isVideoPlaying} />
 
-            <Canvas
-              ref={canvasRef}
-              width={container.width}
-              height={container.height}
-            />
 
             <Flash
               flash={isFlashing}
               onAnimationEnd={() => setIsFlashing(false)}
             />
-          </Container>
 
           {isVideoPlaying && (
             <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
