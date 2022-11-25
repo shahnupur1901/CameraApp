@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useRef } from "react";
 import ReactDOM from "react-dom";
-import { Camera } from "./camera";
+import { Camera } from "./camera/illndex";
 import { Root, Preview, Footer, GlobalStyle } from "./styles";
 import { useUserMedia } from "./hooks/use-user-media";
 import {
@@ -22,6 +22,7 @@ function App() {
   }
   function handleCanPlay() {
      videoRef.current.play();
+     console.log("playing")
    }
   return (
     <>
@@ -31,7 +32,7 @@ function App() {
               autoPlay
               playsInline
               muted
-              height={"200px"}
+              height={"100%"}
         />
     </>
   );
