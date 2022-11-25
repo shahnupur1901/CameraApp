@@ -8,8 +8,9 @@ import LoopIcon from '@mui/icons-material/Loop';
     let width = videoDemWidth
     let height = videoDemHeight
     return(
-        <div style={{display:"flex", flexDirection:"column", justifyContent:"start", alignItems:"flex-start", width:width, height:height, overflow:"hidden"}}>
-            <div className="VideoAndCanvas">
+        <div width={width} height={height} style={{display:"flex", flexDirection:"column", justifyContent:"start", alignItems:"flex-start", width:width, height:height, overflow:"hidden"}}>
+            <div className="VideoAndCanvas"
+            width={width} height={height} >
                 <video width={width} height={height} style={{objectFit:'contain'}} />
                 <canvas width={width} height={height} style={{opacity:canvasOpacity}} />
             </div>

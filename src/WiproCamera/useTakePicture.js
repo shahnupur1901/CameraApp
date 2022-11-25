@@ -30,6 +30,7 @@ export const useTakePicture = ()=> {
                     let {clientLeft, clientTop, videoWidth, videoHeight} = video
                     handleVideoDem({w:videoWidth, h:videoHeight})
                     //align canvas position with video position
+                    console.log(videoDem)
                     canvas.style.position="absolute";
                     canvas.style.left=clientLeft.toString();
                     canvas.style.top=clientTop.toString();
@@ -57,9 +58,10 @@ export const useTakePicture = ()=> {
             let video = document.getElementsByTagName('video')[0]
             let canvas= document.getElementsByTagName('canvas')[0];
             let context = canvas.getContext('2d');
-            context?.drawImage(video,0,0,videoDem.w,videoDem.h);
-            let imageData1 = canvas.toDataURL('image/png', 1.0);
-            console.log();
+            console.log(videoDem)
+            context?.drawImage(video,0,0,videoDem.w,500);
+            let imageData1 = canvas.toDataURL('image/jpeg', 1.0);
+            console.log(imageData1);
             handleImageData(imageData1)
             return imageData1
         }catch(e){
