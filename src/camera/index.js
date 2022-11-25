@@ -93,7 +93,7 @@ export function Camera({ onCapture, onClear }) {
             // maxHeight={videoRef.current && videoRef.current.videoHeight}
             // maxWidth={videoRef.current && videoRef.current.videoWidth}
             style={{
-              height: "100%"
+              height: `${videoRef.current.videoHeight}px`
             }}
           >
             <Video
