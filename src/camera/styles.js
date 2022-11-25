@@ -15,6 +15,7 @@ export const Wrapper = styled.div`
   flex-flow: column;
   align-items: center;
   width: 100%;
+  height:100%
 `;
 
 export const Container = styled.div`
