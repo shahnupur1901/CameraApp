@@ -1,17 +1,16 @@
 {
   "files": {
-    "main.css": "/CameraApp/static/css/main.073c9b0a.css",
-    "main.js": "/CameraApp/static/js/main.aa3ec33f.js",
+    "main.css": "/CameraApp/static/css/main.e6c13ad2.css",
+    "main.js": "/CameraApp/static/js/main.82cf8f97.js",
     "static/js/787.1a0cea75.chunk.js": "/CameraApp/static/js/787.1a0cea75.chunk.js",
     "service-worker.js": "/CameraApp/service-worker.js",
-    "static/media/logo.svg": "/CameraApp/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
     "index.html": "/CameraApp/index.html",
-    "main.073c9b0a.css.map": "/CameraApp/static/css/main.073c9b0a.css.map",
-    "main.aa3ec33f.js.map": "/CameraApp/static/js/main.aa3ec33f.js.map",
+    "main.e6c13ad2.css.map": "/CameraApp/static/css/main.e6c13ad2.css.map",
+    "main.82cf8f97.js.map": "/CameraApp/static/js/main.82cf8f97.js.map",
     "787.1a0cea75.chunk.js.map": "/CameraApp/static/js/787.1a0cea75.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.aa3ec33f.js"
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.82cf8f97.js"
   ]
 }
