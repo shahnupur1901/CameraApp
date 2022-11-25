@@ -95,7 +95,7 @@ export function Camera({ onCapture, onClear }) {
               autoPlay
               playsInline
               muted
-              height={"100%"}
+             
             />
 
             <Overlay hidden={!isVideoPlaying} />
