@@ -16,6 +16,7 @@ function App() {
   if (mediaStream && videoRef.current && !videoRef.current.srcObject) {
     videoRef.current.srcObject = mediaStream;
   }
+  console.log(mediaStream)
   if (!mediaStream) {
     return null;
   }
@@ -30,8 +31,8 @@ function App() {
               autoPlay
               playsInline
               muted
-             
-            />
+              height={"200px"}
+        />
     </>
   );
 }
