@@ -100,7 +100,6 @@ export function Camera({ onCapture, onClear }) {
 
             <Overlay hidden={!isVideoPlaying} />
 
-
             <Flash
               flash={isFlashing}
               onAnimationEnd={() => setIsFlashing(false)}
