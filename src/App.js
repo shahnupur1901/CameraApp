@@ -1,12 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import ImageView from './WiproCamera/ImageView';
+import React, { Fragment, useState } from "react";
+import ReactDOM from "react-dom";
+import { Camera } from "./camera";
+import { Root, Preview, Footer, GlobalStyle } from "./styles";
+
 function App() {
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [cardImage, setCardImage] = useState();
+
   return (
-    <div className="App">
-      <ImageView></ImageView>
-    </div>
+    <Fragment>
+          <Camera
+            onCapture={blob => setCardImage(blob)}
+            onClear={() => setCardImage(undefined)}
+          />
+    </Fragment>
   );
 }
 

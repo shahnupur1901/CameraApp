@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
 
+import {useEffect, useState} from 'react';
 
 
 export const useTakePicture = ()=> {
@@ -51,15 +51,15 @@ export const useTakePicture = ()=> {
         handleCameraFacingMode(old=>(old==='environment')?"user":"environment")
     }
 
-    const captureImage = async ()=> {
+    const captureImage = async () => {
         //take photo
         try{
-            let video= document.getElementsByTagName('video')[0]
-            let canvas = document.getElementsByTagName('canvas')[0];
+            let video = document.getElementsByTagName('video')[0]
+            let canvas= document.getElementsByTagName('canvas')[0];
             let context = canvas.getContext('2d');
             context?.drawImage(video,0,0,videoDem.w,videoDem.h);
             let imageData1 = canvas.toDataURL('image/png', 1.0);
-            //console.log('imageData', imageData);
+            console.log();
             handleImageData(imageData1)
             return imageData1
         }catch(e){
