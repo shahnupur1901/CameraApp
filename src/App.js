@@ -87,16 +87,21 @@ function App(){
     photo.width = width
     photo.height = height
     let ctx = photo.getContext('2d')
-    ctx.drawImage(video,0,0,width, height)
     let canvas= document.getElementById('canvasImage');
+    if(prevImages.length==0) ctx.drawImage(video,0,0,width, height)
+    else{
+      canvas.height = height
+      canvas.width = 0.75*width
+      ctx.drawImage(video,width*0.25, 0, width*0.75, height, 0,0, width*0.75, height)
+    }
     var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     console.log(image)
     setPrevImages([...image])
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     console.log(width)
     canvas.height = height
-    canvas.width = 0.1*width
-    ctx.drawImage(video,width*0.9, 0, width*0.1, height, 0,0, width*0.1, height)
+    canvas.width = 0.25*width
+    ctx.drawImage(video,width*0.75, 0, width*0.25, height, 0,0, width*0.25, height)
     var image2 = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     console.log(image2)
     setPrevPreview(image2)
@@ -109,8 +114,8 @@ function App(){
     <>
     <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"hidden"}}>
       
-      <div className="camera">
-      {prevImages.length>0 && <img src={`${prevPreview}`} style={{margin:"0px"}}></img>}
+      <div className="camera" style={{position:"relative"}}>
+      {prevImages.length>0 && <img src={`${prevPreview}`} style={{opacity : "0.5", position:"absolute", top:"0", left:"0", margin:"0"}}></img>}
         <video ref = {videoRef}></video>
         <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
       </div>
