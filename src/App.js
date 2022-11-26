@@ -75,7 +75,6 @@ function App(){
         //get position of video tag;
         let {clientLeft, clientTop, videoWidth, videoHeight} = video
         handleVideoDem({w:videoWidth, h:videoHeight})
-        
       }
       video.play()
     }).catch(e=>console.log(e))
@@ -115,9 +114,9 @@ function App(){
         <video ref = {videoRef}></video>
         <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
       </div>
-      <button onClick={takePhoto}>Click</button>
-    </div>
       
+    </div>
+    <button onClick={takePhoto}>Click</button>
        </>
   )
 }
