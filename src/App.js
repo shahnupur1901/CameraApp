@@ -105,6 +105,7 @@ function App(){
     ctx.drawImage(video,width*0.75, 0, width*0.25, height, 0,0, width*0.25, height)
     var image2 = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     setPrevPreview(image2)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
   useEffect(()=>{
     getVideo();
@@ -123,7 +124,8 @@ function App(){
     canvas.width = 0.25*width
     ctx.drawImage(video,0, 0, width*0.25, height, 0,0, width*0.25, height)
     var image2 = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-      console.log(image2)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);  
+    console.log(image2)
       console.log(prevPreview)
    resemble.outputSettings({ useCrossOrigin: false });
   resemble(image2).compareTo(prevPreview).ignoreLess().onComplete((data)=>{
@@ -135,7 +137,7 @@ function App(){
   }
   setInterval(()=>{
     giveRecommendation()
-  },100)
+  },10000)
   const getColor = ()=>{
     return mismatch > 50 ? "red" : "green"
   }
