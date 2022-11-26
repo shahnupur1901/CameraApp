@@ -4,6 +4,7 @@ import { Camera } from "./camera/illndex";
 import { Root, Preview, Footer, GlobalStyle } from "./styles";
 import { useUserMedia } from "./hooks/use-user-media";
 import ImageView from "./WiproCamera/ImageView";
+import { margin } from "@mui/system";
 // import {
 //   Video,
 // } from "./camera/styles"
@@ -57,14 +58,16 @@ import ImageView from "./WiproCamera/ImageView";
 // }
 
 // export default App;
-
 function App(){
   const videoRef = useRef(null)
   const photoRef = useRef(null)
   const [videoDem, handleVideoDem] = useState({w:0, h:0})
+  const [prevImages, setPrevImages] = useState([])
+  const [prevPreview, setPrevPreview] = useState(null)
   const getVideo = () =>{
     navigator.mediaDevices.getUserMedia({
-      video : {width:1920, height:1080}
+      audio: false,
+  video: { facingMode: "environment" }
     }).then(stream=>{
       let video = videoRef.current
       video.srcObject = stream
@@ -86,21 +89,29 @@ function App(){
     photo.height = height
     let ctx = photo.getContext('2d')
     ctx.drawImage(video,0,0,width, height)
-    let canvas= document.getElementById('canvas');
+    let canvas= document.getElementById('canvasImage');
     var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     console.log(image)
+    setPrevImages([...image])
+    setPrevPreview(image)
   }
   useEffect(()=>{
     getVideo();
   },[videoRef])
   return (
-    <div className="App">
+    <>
+    <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px"}}>
+      
       <div className="camera">
+      {prevImages.length>0 && <img src={`${prevPreview}`} style={{margin:"0px"}}></img>}
         <video ref = {videoRef}></video>
-        <button onClick={takePhoto}>Click</button>
-        <canvas ref={photoRef} id="canvas"></canvas>
+     
+        <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
       </div>
+      <button onClick={takePhoto}>Click</button>
     </div>
+      
+       </>
   )
 }
 
