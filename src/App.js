@@ -93,19 +93,26 @@ function App(){
     var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     console.log(image)
     setPrevImages([...image])
-    setPrevPreview(image)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    console.log(width)
+    canvas.height = height
+    canvas.width = 0.1*width
+    ctx.drawImage(video,width*0.9, 0, width*0.1, height, 0,0, width*0.1, height)
+    var image2 = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+    console.log(image2)
+    setPrevPreview(image2)
+
   }
   useEffect(()=>{
     getVideo();
   },[videoRef])
   return (
     <>
-    <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px"}}>
+    <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"hidden"}}>
       
       <div className="camera">
       {prevImages.length>0 && <img src={`${prevPreview}`} style={{margin:"0px"}}></img>}
         <video ref = {videoRef}></video>
-     
         <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
       </div>
       <button onClick={takePhoto}>Click</button>
