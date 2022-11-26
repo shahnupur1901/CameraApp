@@ -128,7 +128,7 @@ function App(){
     console.log(image2)
       console.log(prevPreview)
    resemble.outputSettings({ useCrossOrigin: false });
-  resemble(image2).compareTo(prevPreview).ignoreLess().onComplete((data)=>{
+  resemble(image2).compareTo(prevPreview).ignoreAntialiasing().onComplete((data)=>{
     console.log(data)
     setMismatch(data.misMatchPercentage)
   })
@@ -137,7 +137,7 @@ function App(){
   }
   setInterval(()=>{
     giveRecommendation()
-  },10000)
+  },100)
   const getColor = ()=>{
     return mismatch > 50 ? "red" : "green"
   }
@@ -152,7 +152,7 @@ function App(){
       </div>
       </div>
       <div className="App" style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
-      <button onClick={takePhoto} style={{color: getColor()}}>Click</button>
+      <button onClick={takePhoto} style={{color: getColor()}}>{mismatch}</button>
       </div>
    
        </>
