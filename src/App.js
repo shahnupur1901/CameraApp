@@ -107,16 +107,18 @@ function App(){
   },[videoRef])
   return (
     <>
-    <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"hidden"}}>
+    <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px"}}>
       
       <div className="camera">
       {prevImages.length>0 && <img src={`${prevPreview}`} style={{margin:"0px"}}></img>}
         <video ref = {videoRef}></video>
         <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
       </div>
-      
-    </div>
-    <button onClick={takePhoto}>Click</button>
+      </div>
+      <div className="App" style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
+      <button onClick={takePhoto}>Click</button>
+      </div>
+   
        </>
   )
 }
