@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/CameraApp/static/css/main.e6c13ad2.css",
-    "main.js": "/CameraApp/static/js/main.bcf0d5bd.js",
+    "main.js": "/CameraApp/static/js/main.c1159bd7.js",
     "static/js/787.1a0cea75.chunk.js": "/CameraApp/static/js/787.1a0cea75.chunk.js",
     "service-worker.js": "/CameraApp/service-worker.js",
     "index.html": "/CameraApp/index.html",
     "main.e6c13ad2.css.map": "/CameraApp/static/css/main.e6c13ad2.css.map",
-    "main.bcf0d5bd.js.map": "/CameraApp/static/js/main.bcf0d5bd.js.map",
+    "main.c1159bd7.js.map": "/CameraApp/static/js/main.c1159bd7.js.map",
     "787.1a0cea75.chunk.js.map": "/CameraApp/static/js/787.1a0cea75.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.bcf0d5bd.js"
+    "static/js/main.c1159bd7.js"
   ]
 }
