@@ -76,7 +76,8 @@ function App(){
       video.onloadedmetadata = ()=>{
         //get position of video tag;
         let {clientLeft, clientTop, videoWidth, videoHeight} = video
-        handleVideoDem({w:videoWidth, h:videoHeight})
+        
+        handleVideoDem({w:window.innerWidth >= videoWidth ? videoWidth : window.innerWidth , h:videoHeight})
       }
       video.play()
     }).catch(e=>console.log(e))
