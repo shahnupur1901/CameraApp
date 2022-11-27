@@ -117,7 +117,7 @@ function NextCameraComponent(){
         return (
           <>
           <div className="App">
-            <div className="camera" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px"}}>
+            <div className="camera" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px",  overflow:"scroll"}}>
             
             {prevImages.length>0 && <img src={`${prevPreview}`} style={{borderRightColor:"yellow", borderRightWidth:"10px"}}></img>}
               <video ref = {videoRef} ></video>
