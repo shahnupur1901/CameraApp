@@ -14,7 +14,7 @@ function App(){
      
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<CameraComponent />} />
+      <Route path="/" element={<NextCameraComponent />} />
       <Route path="/approach" element={<NextCameraComponent />} />
     </Routes>
     </BrowserRouter>
