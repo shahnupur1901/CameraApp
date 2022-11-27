@@ -90,7 +90,10 @@ function App(){
     photo.width = width
     photo.height = height
     let ctx = photo.getContext('2d')
+   
     let canvas= document.getElementById('canvasImage');
+    canvas.height = height
+    canvas.width = width
     if(prevImages.length==0) ctx.drawImage(video,0,0,width, height)
     else{
       canvas.height = height
