@@ -101,7 +101,7 @@ function App(){
       ctx.drawImage(video,width*0.25, 0, width*0.75, height, 0,0, width*0.75, height)
     }
     var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-   
+    downloadURI(`${image}`, `${image}.jpeg`);
     setPrevImages([...image])
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.height = height
@@ -114,6 +114,15 @@ function App(){
   useEffect(()=>{
     getVideo();
   },[videoRef])
+
+  function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   const giveRecommendation = ()=>{
     if(prevImages.length > 0 ){
