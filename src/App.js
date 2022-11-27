@@ -83,6 +83,7 @@ function App(){
     }).catch(e=>console.log(e))
   }
   const takePhoto = () =>{
+    console.log(prevImages.length)
     const width = videoDem.w
     const height = videoDem.h
     let video = videoRef.current
@@ -101,8 +102,9 @@ function App(){
       ctx.drawImage(video,width*0.25, 0, width*0.75, height, 0,0, width*0.75, height)
     }
     var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
-    downloadURI(`${image}`, `${image}.jpeg`);
-    setPrevImages([...image])
+  //  downloadURI(`${image}`, `${image}.jpeg`);
+    setPrevImages([...prevImages, image])
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     canvas.height = height
     canvas.width = 0.25*width
@@ -138,11 +140,11 @@ function App(){
     ctx.drawImage(video,0, 0, width*0.25, height, 0,0, width*0.25, height)
     var image2 = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
     ctx.clearRect(0, 0, canvas.width, canvas.height);  
-    console.log(image2)
-      console.log(prevPreview)
+    // console.log(image2)
+    //   console.log(prevPreview)
    resemble.outputSettings({ useCrossOrigin: false });
   resemble(image2).compareTo(prevPreview).ignoreAntialiasing().onComplete((data)=>{
-    console.log(data)
+    // console.log(data)
     setMismatch(data.misMatchPercentage)
   })
    
@@ -166,8 +168,14 @@ function App(){
       </div>
       <div className="App" style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
       <button onClick={takePhoto} style={{color: getColor()}}>{mismatch}</button>
+</div>
+      <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"scroll"}}>
+
+      {prevImages.length>0 && prevImages.map(image =>
+        <img src = {`${image}`}></img>
+      )}
       </div>
-   
+     
        </>
   )
 }
