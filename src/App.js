@@ -77,7 +77,7 @@ function App(){
         //get position of video tag;
         let {clientLeft, clientTop, videoWidth, videoHeight} = video
         
-        handleVideoDem({w:window.innerWidth >= videoWidth ? videoWidth : window.innerWidth , h:videoHeight})
+        handleVideoDem({w:videoWidth, h:videoHeight})
       }
       video.play()
     }).catch(e=>console.log(e))
