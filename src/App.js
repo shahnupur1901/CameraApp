@@ -10,15 +10,14 @@ import { margin } from "@mui/system";
 import CameraComponent from "./CameraComponent/CameraComponent";
 import NextCameraComponent from "./NextCameraComponent/NextCameraComponent";
 function App(){
+  const [app1, setApp1] = useState(false)
+  const [app2, setApp2] = useState(false)
   return (
-     
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<NextCameraComponent />} />
-      <Route path="/approach" element={<NextCameraComponent />} />
-    </Routes>
-    </BrowserRouter>
-
+    <>
+    {!app1&&!app2 ? <> <button onClick={()=>setApp1(true)}>Approach 1</button><button onClick={()=>setApp2(true)}>Approach 2</button></> : <></>}
+    {(app1) ? <CameraComponent></CameraComponent> : <></>}
+    {(app2) ? <NextCameraComponent></NextCameraComponent> :  <></>}
+    </>
     )
 }
 

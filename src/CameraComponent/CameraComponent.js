@@ -190,6 +190,10 @@ setPrevPreview(image2)
     return mismatch > 50 ? "red" : "green"
   }
   return (
+
+
+
+    
     <>
     <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"hidden"}}>
 
