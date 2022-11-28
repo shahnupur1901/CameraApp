@@ -39,7 +39,7 @@ function NextCameraComponent(){
           if(prevImages.length==0) ctx.drawImage(video,0,0,width, height)
           else{
             canvas.height = height
-            canvas.width = 0.75*width
+            canvas.width = width
             ctx.drawImage(video,0,0,width, height)
           }
           var image = canvas.toDataURL("image/jpeg").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
@@ -117,9 +117,9 @@ function NextCameraComponent(){
         return (
           <>
           <div className="App">
-            <div className="camera" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px",  overflow:"scroll"}}>
+            <div className="camera" style={{display:"flex", flexDirection: "row", marginTop:"0px",  overflow:"scroll"}}>
             
-            {prevImages.length>0 && <img src={`${prevPreview}`} style={{borderRightColor:"yellow", borderRightWidth:"10px"}}></img>}
+            {prevImages.length>0 && <img src={`${prevPreview}`}></img>}
               <video ref = {videoRef} ></video>
               <canvas ref={photoRef} id="canvasImage" hidden={true}></canvas>
             </div>
