@@ -14,7 +14,9 @@ function App(){
   const [app2, setApp2] = useState(false)
   return (
     <>
-    {!app1&&!app2 ? <> <button onClick={()=>setApp1(true)}>Approach 1</button><button onClick={()=>setApp2(true)}>Approach 2</button></> : <></>}
+    {!app1&&!app2 ? <> 
+            <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"100px", overflow:"scroll", height:"50"}}>
+      <button onClick={()=>setApp1(true)}>Approach 1</button><button onClick={()=>setApp2(true)}>Approach 2</button></div></> : <></>}
     {(app1) ? <CameraComponent></CameraComponent> : <></>}
     {(app2) ? <NextCameraComponent></NextCameraComponent> :  <></>}
     </>

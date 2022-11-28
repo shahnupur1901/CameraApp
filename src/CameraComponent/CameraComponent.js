@@ -133,7 +133,6 @@ function CameraComponent(){
 //   method: "POST",
 //   url: "http://127.0.0.1:8000/camera/",
 //   headers: {
-  
 //     Authorization: "Bearer 6tEg0RinS5rxyZ8TX84Vc6qXuR2Xxw"
 //   },
 //   fd

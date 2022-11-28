@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
+import React, {useState, useRef, useEffect } from "react";
 import resemble from "resemblejs"
 function NextCameraComponent(){
         const videoRef = useRef(null)
