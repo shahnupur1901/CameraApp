@@ -203,7 +203,7 @@ setPrevPreview(image2)
       </div>
       </div>
       <div className="App" style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
-      <button onClick={takePhoto} style={{color: getColor()}}>{mismatch}</button>
+      <button onClick={takePhoto} style={{backgroundColor: getColor(), padding:"10px", color:"white", borderWidth:"0px",}}>{mismatch}</button>
 </div>
       <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"scroll"}}>
 

@@ -125,7 +125,7 @@ function NextCameraComponent(){
             </div>
             </div>
             <div className="App" style={{display:"flex",justifyContent: "center", alignItems: "center"}}>
-            <button onClick={takePhoto} style={{color: getColor()}}>{mismatch}</button>
+            <button onClick={takePhoto} style={{backgroundColor:"blue", padding:"10px", color:"white", borderWidth:"0px"}}>Snap!</button>
       </div>
             <div className="App" style={{display:"flex", flexDirection: "row", justifyContent: "center", alignItems: "center", marginTop:"0px", overflow:"scroll"}}>
       
