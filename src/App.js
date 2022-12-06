@@ -9,7 +9,10 @@ import { BrowserRouter, Route, Switch, Link, Routes } from "react-router-dom";
 import { margin } from "@mui/system";
 import CameraComponent from "./CameraComponent/CameraComponent";
 import NextCameraComponent from "./NextCameraComponent/NextCameraComponent";
+
+
 function App(){
+  
   const [app1, setApp1] = useState(false)
   const [app2, setApp2] = useState(false)
   return (
